@@ -66,7 +66,10 @@ If the above conditions are satisfied there are two possible ways to make the mo
 diagonal configuration (any direction). 1) Rotate the $3\times3$ square by $\pi$, 2) reflection
 about the diagonal of the square that is perpendicular to the direction of movement. The second
 option will flip the "not star" dimers from vertical to horizontal and visa versa. For now we only
-implement the first option (rotation).
+implement the first option (rotation). Unfortunately we must distinguish between translations
+happening along different diagonals. A general rotation does not suffice because we do not want to
+alter, swap, or in any way change the corners of the $3\times 3$ square that are off the diagonal of
+the translation.
 
 \begin{figure}[h]
     \centering
