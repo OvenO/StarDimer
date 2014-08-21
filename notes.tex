@@ -18,28 +18,86 @@
 
 \maketitle 
 
-\section{Moves and Rules}
+\section{Updated Moves and Rules}
 
-Creating a pair of stars in the staggered state is shown in fig. \ref{fig:create_pair}. We notice
+\subsection{Star Pair Creation and anihilation}
+
+Creation and annihilation of a horizontal pair of stars is shown in fig.
+\ref{fig:create_annihilate_pair}. Creation and annihilation of a vertical pair of stars can be
+is simply what is shown in fig. \ref{fig:create_annihilate_pair} rotated by $\pi/2$.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{create_annihilate_pair}
+    \caption{The creation and annihilation of a pair of stars.
+\label{fig:create_annihilate_pair}}
+\end{figure}
+
+\subsection{Star Horizontal/Vertical Translation}
+Horizontal translations of a star is shown in fig. \ref{fig:move_right_left}. The vertical
+translations can be obtained by rotating fig. \ref{fig:move_right_left} by $\pi/2$. Horizontal
+translations must be preformed such that the star remaines on its origonal sublattice, thus the
+minimal translation is by two verticies.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{move_right_left}
+    \caption{Horizontal translation of a star.
+\label{fig:move_right_left}}
+\end{figure}
+
+\subsection{Star Diagonal Translation}
+A star can remain on its origonal sublattice through a diagonal translation as well. It turns out
+that the diagonal tranlations can occure in a wider variaty of casses. We show a star moving
+diagonaly in the upward right direction in fig. \ref{fig:diag} where there are three possibile
+alowed movments in this direction of this order. We see that diagonal movment can happen as long as
+the following conditions are met.
+
+\begin{itemize}
+    \item of the $3\times 3$ square the furthest vertex from the star must not be the center of a
+        different star.
+    \item there must be two dimers occupying 2 of the 6 ocupiable links in the corner furthest from
+        the star. This ensures that the star is not moved into a position where it is breaking
+        "number of links around a vertex" rules.
+\end{itemize}
+
+\noindent
+If the above conditions are satisfied there are two posible ways to make the move for any movable
+diagonal configuration (any direction). 1) Rotate the $3\times3$ square by $\pi$, 2) reflection
+about the diagonal of the square that is perpendicular to the direction of movement. The second
+option will flip the "not star" dimers from vertical to horizontal and visa versa. For now we only
+implement the first option (rotation).
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{diag}
+    \caption{Diagonal translation in the upward right direction.
+\label{fig:diag}}
+\end{figure}
+
+
+\section{Old Moves and Rules}
+
+Creating a pair of stars in the staggered state is shown in fig. \ref{fig:old_create_pair}. We notice
 the creation of a star produces two flippable plaquettes between the two stars.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=8.5 cm]{create_pair}
+    \includegraphics[width=8.5 cm]{old_create_pair}
     \caption{The creation of a pair of stars in the fully packed staggered configuration. The red
     dots on the $x$ and $y$ axes show the dimer about which the stars are created.
-\label{fig:create_pair}}
+\label{fig:old_create_pair}}
 \end{figure}
 
-\noindent In fig. \ref{fig:move_right} we show the rightmost star move right in the same
+\noindent In fig. \ref{fig:old_move_right} we show the rightmost star move right in the same
 configuration. In any single star must remain on the sublattice it was created on, so the center of
 the star moves by two vertices. We notice that the horizontal propagation of a star creates two boundaries of
 flippable plaquettes across the top and bottom of the star pair. 
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=8.5 cm]{move_right}
-    \caption{The move of the rightmost star in fig. \ref{fig:create_pair} \label{fig:move_right}}
+    \includegraphics[width=8.5 cm]{old_move_right}
+    \caption{The move of the rightmost star in fig. \ref{fig:old_create_pair} \label{fig:old_move_right}}
 \end{figure}
 
 Still figuring out the possible ways to move stars vertically. In six steps we show it is possible
