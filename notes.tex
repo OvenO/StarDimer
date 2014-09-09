@@ -18,7 +18,84 @@
 
 \maketitle 
 
-\section{Updated Moves and Rules}
+\section{Misc}
+Coupling a $U(1)$ gauge field to a charge $N$ matter field reduces the gauge symetry to $Z_N$ gauge
+field (for $N>1$).
+
+\section{Dimer Model}
+
+\subsection{Correlation Functions}
+
+Here we check the implementation of our numerical methods. First we validate that the dimer pair
+correlations in a fully packed dimer model decay as $1/r^2$. Second we validate that the monomer
+pair (defect) correlations in a fully packed dimer model decay as $1/r^{1/2}$ ($1/r^{1/3}$ in the
+fully packed loop model). In fig. \ref{fig:dimer_dimer_cor} we show a histogram of the correlation
+function 
+\begin{equation}
+    \label{}
+    C_{dimer}(0,r) = \langle s_0 s_r \rangle -\langle s_0 \rangle \langle s_r \rangle
+\end{equation}
+
+\noindent
+for a lattice size of $64\times 64$ The disconnected piece of the correlation function is
+
+\begin{equation}
+    \label{}
+    \langle s_0 \rangle \langle s_r \rangle = \frac{1}{4}\frac{1}{4} = \frac{1}{16}.
+\end{equation}
+
+\noindent
+The connected component is calculated numerically, in this case, $s_0$ is the value of the link at the
+right of the $(0,0)$ vertex and $s_r$ are only chosen from the same vertical column of links.
+In fig. \ref{fig:dimer_dimer_cor_log} we show a log log plot of the first half of the data
+shown in fig. \ref{fig:dimer_dimer_cor}. Using a weighted fit we find the slope of the line to be
+$2.3437\pm 0.0007$.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{dimer_dimer_cor}
+    \caption{lattice size: $64\times64$. Number of bins: 80,000. Each bin averaged over 50,000
+    configurations. Each configuration used was spaced by 4 random walks.\label{fig:dimer_dimer_cor}}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{dimer_dimer_cor_log}
+    \caption{lattice size: $64\times64$. Number of bins: 80,000. Each bin averaged over 50,000
+    configurations. Each configuration used was spaced by 4 random walks.\label{fig:dimer_dimer_cor_log}}
+\end{figure}
+
+\section{Star Dimer}
+
+Very preliminary results of the star star correlation function are shown in fig.
+\ref{fig:star_star_cor}. 
+
+\begin{equation}
+    \label{}
+    C_{star}(0,r) =  \langle star_0 star_r \rangle -\langle star_0 \rangle \langle star_r \rangle
+\end{equation}
+
+\noindent
+The disconnected piece has been numerically measured for a couple of different lattice sizes shown
+in table \ref{table:counts}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{star_star_cor}
+    \caption{Star star correlation function (just along y direction) \label{fig:star_star_cor}}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{star_star_cor_log}
+    \caption{Star star correlation function (just along y direction) log log plot.\label{fig:star_star_cor_log}}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{s_dimer_dimer_cor}
+    \caption{Dimer dimer correlation function in the star dimer model \label{fig:s_dimer_dimer}}
+\end{figure}
 
 \subsection{Star Pair Creation and Annihilation}
 
@@ -46,40 +123,80 @@ minimal translation is by two vertices.
 \label{fig:move_right_left}}
 \end{figure}
 
+
 \subsection{Star Diagonal Translation}
-A star can remain on its original sub-lattice through a diagonal translation as well. It turns out
-that the diagonal translations can occur in a wider variety of cases. We show a star moving
-diagonally in the upward right direction in fig. \ref{fig:diag} where there are three possible
-allowed movements in this direction of this order. We see that diagonal movement can happen as long as
-the following conditions are met.
-
-\begin{itemize}
-    \item of the $3\times 3$ square the furthest vertex from the star must not be the center of a
-        different star.
-    \item there must be two dimers occupying 2 of the 6 occupiable links in the corner furthest from
-        the star. This ensures that the star is not moved into a position where it is breaking
-        "number of links around a vertex" rules.
-\end{itemize}
-
-\noindent
-If the above conditions are satisfied there are two possible ways to make the move for any movable
-diagonal configuration (any direction). 1) Rotate the $3\times3$ square by $\pi$, 2) reflection
-about the diagonal of the square that is perpendicular to the direction of movement. The second
-option will flip the "not star" dimers from vertical to horizontal and visa versa. For now we only
-implement the first option (rotation). Unfortunately we must distinguish between translations
-happening along different diagonals. A general rotation does not suffice because we do not want to
-alter, swap, or in any way change the corners of the $3\times 3$ square that are off the diagonal of
-the translation.
-
+A star can remain on its original sub-lattice through a diagonal translation as well. We show a star moving
+to the lower right diagonal in fig. \ref{fig:diag}. 
 \begin{figure}[h]
     \centering
     \includegraphics[width=8.5 cm]{diag}
-    \caption{Diagonal translation in the upward right direction.
+    \caption{Diagonal translation to the lower right diagonal.
 \label{fig:diag}}
 \end{figure}
 
 
-\section{Old Moves and Rules}
+
+\subsection{Equilibration Time}
+
+We show three order parameters as a function of Monte Carlo time, $t_{mc}$: 
+
+\begin{itemize}
+    \item The number of stars.
+    \item The difference between the number of vertical dimers and horizontal dimers.
+    \item The number of flippable plaquetts.
+\end{itemize}
+
+\noindent
+in fig. \ref{fig:nums_of_things}. We define $t_{mc}$ to be $2lh$ local updates, where $l$ is the length of the system and $h$ is the
+height of the system in number of vertices. This lattice size used was $64\times 64$. Each data
+point shown is the average over 100 different simulations. The error bars are the standard deviations of
+the counts used in taking the mean. It appears as if the equilibration time is around $400t_{mc}$. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{num_order_params}
+    \caption{From the top down: The number of stars on the lattice, the difference between the
+    number of vertical dimers and horizontal dimers, and the number of flippable plaquetts as a
+    function of Monte Carlo time $t_{mc}$. \label{fig:nums_of_things}}
+\end{figure}
+
+\subsection{Star Concentrations}
+
+The following statistics are given for different lattice sizes but each set of data is found using
+100,000 bins, each an average over 10 measurements, each measurement taken after $1\times t_{mc}$.
+We have not included the first 400 $t_{mc}$ so that the averages are found in an equilibrated
+system.
+
+\begin{table}[htp]
+    \caption{Some Counting}
+    \centering
+    \begin{tabular}{l | l | l | l}
+    \hline\hline
+    lattice size                                            & $16\times 16$ & $32\times 32$             & $64\times 64$ \\ \hline
+    $\langle \# stars \rangle$                              &               &  $55.65171$               & $ 222.51807 $\\ \hline
+    $\sigma_{\# stars}$                                     &               &  $8.61922 $               & $ 17.23504  $\\ \hline
+    $\langle star_{i,j} \rangle$                            &               &  $0.05435 \pm 0.00842 $   & $ 0.05432 \pm 0.00421 $\\ \hline
+    $\langle star_{i,j} \rangle \langle star_{i,j} \rangle$ &               &  $0.00295 \pm 0.00007 $   & $ 0.00295 \pm .00002 $\\ [1ex]
+    \hline
+    \end{tabular}
+    \label{table:counts}
+\end{table}
+
+%mean number of stars on 32x32 lattic: 55.6517126851
+%standard deviation: 8.61921699625
+%standard deviation/(32x32) = 0.0084172040979
+%probability of having a star at ith vertex is mean/(32x32) = 0.054347375669
+%disconected part of corelation function is (mean/(32x32))^2 = 0.00295363724211
+%disconected err = 7.08493248258e-05
+
+%Mean number of stars on 64x64 lattic: 222.518069228
+%standard deviation: 17.2350429392
+%standard deviation/(64x64) = 0.00420777415507
+%probability of having a star at ith vertex is mean/(64x64) = 0.054325700495
+%disconnected part of correlation function is (mean/(64x64))^2 = 0.00295128173428
+
+
+\subsection{Old Moves and Rules}
 
 Creating a pair of stars in the staggered state is shown in fig. \ref{fig:old_create_pair}. We notice
 the creation of a star produces two flippable plaquettes between the two stars.
