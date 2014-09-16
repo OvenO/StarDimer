@@ -19,8 +19,43 @@
 \maketitle 
 
 \section{Misc}
-Coupling a $U(1)$ gauge field to a charge $N$ matter field reduces the gauge symetry to $Z_N$ gauge
-field (for $N>1$).
+At the RK point the ground state is the short-range resonating valence bond state
+
+\begin{equation}
+    \label{}
+    \left| \Psi_{RVB} \right\rangle = \sum_{C} \left| C \right\rangle
+\end{equation}
+    
+\noindent
+where $\{C\}$ is the set of fully packed dimer configurations.
+
+\begin{equation}
+    \label{}
+    \| \Psi_{RVB} \|^2 = Z_{classical dimer}
+\end{equation}
+
+i.e. the norm of $\Psi_{RVB}$ is the partition function of the classical dimer model.
+\\
+all above is from Fradkin.
+\\
+
+$U(1)$ gauge theory describes low-energy strong local correlations.
+Coupling a $U(1)$ gauge field to a charge $N$ matter field reduces the gauge symmetry to $Z_N$ gauge
+field (for $N>1$). 
+
+The structure of the quantum dimer models phase diagrams depends on if a lattice is bipartite or
+not; if it is bipartite it also depends on the coordination number. Most of the time the valence
+bond crystal is the ground state.
+
+The Hamiltonian of the quantum dimer model is split in the resonance term and the diagonal term. The
+resonance term being the kinetic energy term and the diagonal term being the potential energy term
+diagonal term being the potential energy term.
+\begin{equation}
+    \label{}
+    H = H_{res} + H_{diag}
+\end{equation}
+
+
 
 \section{Dimer Model}
 
@@ -47,9 +82,18 @@ for a lattice size of $64\times 64$ The disconnected piece of the correlation fu
 \noindent
 The connected component is calculated numerically, in this case, $s_0$ is the value of the link at the
 right of the $(0,0)$ vertex and $s_r$ are only chosen from the same vertical column of links.
-In fig. \ref{fig:dimer_dimer_cor_log} we show a log log plot of the first half of the data
-shown in fig. \ref{fig:dimer_dimer_cor}. Using a weighted fit we find the slope of the line to be
-$2.3437\pm 0.0007$.
+In fig. \ref{fig:dimer_dimer_cor_log} we show a log log plot of the relevent half of the data
+shown in fig. \ref{fig:dimer_dimer_cor}. Using a weighted fit of on points $[3,9]$, shown in fig.
+\ref{fig:fit_dm_dm_64x64} we find the slope of the line to be $-2.4833\pm 0.0090$.
+
+We now look at the same correlation function on a $128\times128$ lattice.
+Using a weighted fit of on points $[3,13]$, shown in fig.
+\ref{fig:fit_dm_dm_128x128} we find the slope of the line to be $-2.4203\pm 0.0106$.
+
+Now the correlation function on a $256\times256$ lattice.
+Using a weighted fit of on points $[3,14]$, shown in fig.
+\ref{fig:fit_dm_dm_256x256} we find the slope of the line to be $2.3057\pm 0.0269$.
+
 
 \begin{figure}[h]
     \centering
@@ -64,6 +108,47 @@ $2.3437\pm 0.0007$.
     \caption{lattice size: $64\times64$. Number of bins: 80,000. Each bin averaged over 50,000
     configurations. Each configuration used was spaced by 4 random walks.\label{fig:dimer_dimer_cor_log}}
 \end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{fit_dm_dm_horz_ln_pnts_64x64}
+    \caption{The points chosen from fig \ref{fig:dimer_dimer_cor_log} that are used to calculate the
+    slope.\label{fig:fit_dm_dm_64x64}}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{dimer_dimer_cor_log_128x128}
+    \caption{The log log plot of the points used to calculate the sope of the dimer dimer
+        correlation function on a $128\times 128$ lattice. Number of bins: 9,000. Each bin is
+    averaged over 500,000 measurments\label{fig:dimer_dimer_cor_log_128x128}}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{fit_dm_dm_horz_ln_pnts_128x128}
+    \caption{The points used in the fit for the $128\times128$ lattice.\label{fig:fit_dm_dm_128x128}}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{dimer_dimer_cor_log_256x256}
+    \caption{The log log plot of the points used to calculate the sope of the dimer dimer
+        correlation function on a $256\times 256$ lattice. Number of bins: 9,000. Each bin is
+    averaged over 500,000 measurments\label{dimer_dimer_cor_log_256x256}}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{fit_dm_dm_horz_ln_pnts_256x256}
+    \caption{The points used in the fit for the $256\times256$ lattice.\label{fig:fit_dm_dm_256x256}}
+\end{figure}
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Star Dimer}
 
@@ -97,6 +182,9 @@ in table \ref{table:counts}.
     \caption{Dimer dimer correlation function in the star dimer model \label{fig:s_dimer_dimer}}
 \end{figure}
 
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Star Pair Creation and Annihilation}
 
 Creation and annihilation of a horizontal pair of stars is shown in fig.
@@ -134,8 +222,33 @@ to the lower right diagonal in fig. \ref{fig:diag}.
 \label{fig:diag}}
 \end{figure}
 
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Autocorrelation Time}
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{auto_cor_num_stars}
+    \caption{Autocorrelation time for the number of stars on a $32\times 32$ lattice. Binning was preformed on $4\times 10^6$
+    measurements each spaced $t_{mc}$. \label{fig:auto_cor_num_stars}}
+\end{figure}
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{auto_cor_num_horz}
+    \caption{Autocorrelation time for the number of horizontal dimers on a $32\times 32$ lattice. Binning was preformed on $4\times 10^6$
+    measurements each spaced $t_{mc}$. \label{fig:auto_cor_num_stars}}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{auto_cor_num_vert}
+    \caption{Autocorrelation time for the number of vertical dimers on a $32\times 32$ lattice. Binning was preformed on $4\times 10^6$
+    measurements each spaced $t_{mc}$. \label{fig:auto_cor_num_stars}}
+\end{figure}
+
+\clearpage
 \subsection{Equilibration Time}
 
 We show three order parameters as a function of Monte Carlo time, $t_{mc}$: 
@@ -160,6 +273,15 @@ the counts used in taking the mean. It appears as if the equilibration time is a
     function of Monte Carlo time $t_{mc}$. \label{fig:nums_of_things}}
 \end{figure}
 
+%\subsection{Autocorrelation time}
+%
+%\begin{figure}[h]
+%    \centering
+%    \includegraphics[width=8.5 cm]{}
+%    \caption{A binning analysis preformed on ###### bins, where each bin is an average over 100
+%    measurements and each measurement was taken after one $t_{mc} \label{fig:}}
+%\end{figure}
+
 \subsection{Star Concentrations}
 
 The following statistics are given for different lattice sizes but each set of data is found using
@@ -172,30 +294,82 @@ system.
     \centering
     \begin{tabular}{l | l | l | l}
     \hline\hline
-    lattice size                                            & $16\times 16$ & $32\times 32$             & $64\times 64$ \\ \hline
-    $\langle \# stars \rangle$                              &               &  $55.65171$               & $ 222.51807 $\\ \hline
-    $\sigma_{\# stars}$                                     &               &  $8.61922 $               & $ 17.23504  $\\ \hline
-    $\langle star_{i,j} \rangle$                            &               &  $0.05435 \pm 0.00842 $   & $ 0.05432 \pm 0.00421 $\\ \hline
-    $\langle star_{i,j} \rangle \langle star_{i,j} \rangle$ &               &  $0.00295 \pm 0.00007 $   & $ 0.00295 \pm .00002 $\\ [1ex]
+    lattice size                                            & $16\times 16$ & $32\times 32$   & $64\times 64$ \\ \hline
+    $\langle \# stars \rangle$                              &               &  $55.66655$     & $ 222.51807 $\\ \hline
+    $\sigma_{\# stars}$                                     &               &  $9.67847$      & $ 17.23504  $\\ \hline
+    $\langle star_{i,j} \rangle$                            &               &  $0.05436$      & $ 0.05432   $\\ \hline
+    $\langle star_{i,j} \rangle \langle star_{i,j} \rangle$ &               &  $0.00296$      & $ 0.00295   $\\ \hline 
     \hline
+    $\langle \# - \rangle$                                  &               &$256.02732$      & \\ \hline
+    $\sigma_{\# -}$                                         &               & $12.20027$      & \\ \hline
+    $\langle -_{i,j} \rangle$                               &               &  $0.25003$      & \\ \hline
+    $\langle star_{i,j} \rangle \langle star_{i,j} \rangle$ &               &  $0.06251$      & \\ \hline
+    \hline
+    $\langle \# \| \rangle$                                 &               &$255.97332$      & \\ \hline
+    $\sigma_{\# \|}$                                        &               & $12.19720$      & \\ \hline
+    $\langle \|_{i,j} \rangle$                              &               &  $0.24997$      & \\ \hline
+    $\langle \|_{i,j} \rangle \langle \|_{i,j} \rangle$     &               &  $0.06249$      & \\ \hline \\ [1ex]
     \end{tabular}
     \label{table:counts}
 \end{table}
 
-%mean number of stars on 32x32 lattic: 55.6517126851
-%standard deviation: 8.61921699625
-%standard deviation/(32x32) = 0.0084172040979
-%probability of having a star at ith vertex is mean/(32x32) = 0.054347375669
-%disconected part of corelation function is (mean/(32x32))^2 = 0.00295363724211
-%disconected err = 7.08493248258e-05
 
-%Mean number of stars on 64x64 lattic: 222.518069228
-%standard deviation: 17.2350429392
-%standard deviation/(64x64) = 0.00420777415507
-%probability of having a star at ith vertex is mean/(64x64) = 0.054325700495
-%disconnected part of correlation function is (mean/(64x64))^2 = 0.00295128173428
+\clearpage
+\subsection{Translational Symmetry Breaking}
+
+On an $8\times 8$ lattice we find that there is always some residual asymmetry in the horizontal
+dimers (speculation:) due to the initial configuration of dimers. This appears to be an effect of
+small system size as the $16\times 16$ lattice looks to be transnationally invariant.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{grey_scale_init_config_horz}
+    \caption{Heat map of horizontal dimer placement in the initial staggered configuration of the
+    lattice. Lattice size: $8\times 8$ \label{fig:horz_init_heat}}
+\end{figure}
 
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{grey_scale_avg_horz}
+    \caption{Heat map of horizontal dimer placement on an $8\times 8$ lattice. Each representing the
+        occupation (red) and absence (blue) of a horizontal dimer is averaged over 50,000 configurations. Each
+        configuration included in the average is separated by $100t_{mc}$. Time passed before
+        collecting data was $5\times 10^6 t_{mc}$.  \label{fig:horz_avg_heat}}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{grey_scale_avg_vert}
+    \caption{Heat map of horizontal dimer placement on an $8\times 8$ lattice. Each representing the
+        occupation (red) and absence (blue) of a horizontal dimer is averaged over 50,000 configurations. Each
+        configuration included in the average is separated by $100t_{mc}$. Time passed before
+        collecting data was $5\times 10^6 t_{mc}$. \label{fig:vert_avg_heat}}
+\end{figure}
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{grey_scale_avg_horz_16x16}
+    \caption{Heat map of horizontal dimer placement on an $16\times 16$ lattice. Each representing the
+        occupation (red) and absence (blue) of a horizontal dimer is averaged over 50,000 configurations. Each
+        configuration included in the average is separated by $100t_{mc}$. Time passed before
+        collecting data was $5\times 10^6 t_{mc}$. \label{fig:horz_avg_heat_16x16}}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{grey_scale_avg_vert_16x16}
+    \caption{Heat map of vertical dimer placement on an $16\times 16$ lattice. Each representing the
+        occupation (red) and absence (blue) of a vertical dimer is averaged over 50,000 configurations. Each
+        configuration included in the average is separated by $100t_{mc}$. $5\times 10^6 t_{mc}$ passed
+        before collecting data. \label{fig:vert_avg_heat_16x16}}
+\end{figure}
+
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Old Moves and Rules}
 
 Creating a pair of stars in the staggered state is shown in fig. \ref{fig:old_create_pair}. We notice
