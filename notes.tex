@@ -6,6 +6,14 @@
 \usepackage{setspace}
 \linespread{1}
 
+%include our own symbols
+\newcommand*\hp{\includegraphics[scale=1]{DimerLatexSmbls/hrz_plqt}}
+\newcommand*\vp{\includegraphics[scale=1]{DimerLatexSmbls/vrt_plqt}}
+% "hprs" for horizontal pre star
+\newcommand*\hprs{\includegraphics[scale=1]{DimerLatexSmbls/hrz_pre_star}}
+% "hspr" for horizontal star pair
+\newcommand*\hspr{\includegraphics[scale=1]{DimerLatexSmbls/hrz_star_pair}}
+
 \begin{document}
 
 \title{Notes}
@@ -31,10 +39,17 @@ where $\{C\}$ is the set of fully packed dimer configurations.
 
 \begin{equation}
     \label{}
-    \| \Psi_{RVB} \|^2 = Z_{classical dimer}
+    \| \Psi_{RVB} \|^2 = Z_{\mathrm{classical\ dimer}}
 \end{equation}
 
 i.e. the norm of $\Psi_{RVB}$ is the partition function of the classical dimer model.
+\\
+On the square lattice the dimer dimer correlation function at the RK point (coefficient in front of
+kinetic energy is equal to the coefficient in front of potential energy $t-v$) was solved exactly by Fisher and
+Stephenson in 1963. They showed that correlations decay as $1/r^2$. This algebraic decay means that
+ground state has no long
+range dimer order (not a crystal). It is not a liquid either. In a liquid correlations decay
+exponentially. 
 \\
 all above is from Fradkin.
 \\
@@ -52,9 +67,88 @@ resonance term being the kinetic energy term and the diagonal term being the pot
 diagonal term being the potential energy term.
 \begin{equation}
     \label{}
-    H = H_{res} + H_{diag}
+    H = H_{\mathrm{res}} + H_{\mathrm{diag}}
 \end{equation}
 
+\noindent
+where
+
+\begin{equation}
+    \label{}
+    H_{\mathrm{res}} = -t\sum_{p} 
+        \left(
+            \left|
+                \vp
+            \right\rangle
+            \left\langle
+                \hp
+            \right|
+            +
+            \mathrm{h.c.}
+        \right)
+\end{equation}
+
+\noindent
+and 
+
+\begin{equation}
+    \label{}
+    H_{\mathrm{diag}} = v\sum_{p}
+        \left(
+            \left|
+                \vp
+            \right\rangle
+            \left\langle
+                \vp
+            \right|
+            +
+            \left|
+                \hp
+            \right\rangle
+            \left\langle
+                \hp
+            \right|
+        \right)
+\end{equation}
+
+The sum over $p$ is the sum over all plaqquettes on the lattice.
+
+In the star dimer model we introduce the additional potential and kinetic energy terms.
+
+\begin{equation}
+    \label{}
+    H_{\mathrm{star\ pair\ res}} = a\sum_{p}
+        \left(
+            \left|
+                \hprs
+            \right\rangle
+            \left\langle
+                \hspr
+            \right|
+            +
+            \mathrm{h.c.}
+        \right)
+\end{equation}
+
+\begin{equation}
+    \label{}
+    H_{\mathrm{star\ pair\ diag}} = b\sum_{p}
+        \left(
+            \left|
+                \hprs
+            \right\rangle
+            \left\langle
+                \hprs
+            \right|
+            +
+            \left|
+                \hspr
+            \right\rangle
+            \left\langle
+                \hspr
+            \right|
+        \right)
+\end{equation}
 
 
 \section{Dimer Model}
@@ -83,8 +177,7 @@ for a lattice size of $64\times 64$ The disconnected piece of the correlation fu
 The connected component is calculated numerically, in this case, $s_0$ is the value of the link at the
 right of the $(0,0)$ vertex and $s_r$ are only chosen from the same vertical column of links.
 In fig. \ref{fig:dimer_dimer_cor_log} we show a log log plot of the relevent half of the data
-shown in fig. \ref{fig:dimer_dimer_cor}. Using a weighted fit of on points $[3,9]$, shown in fig.
-\ref{fig:fit_dm_dm_64x64} we find the slope of the line to be $-2.4833\pm 0.0090$.
+shown in fig. \ref{fig:dimer_dimer_cor}. 
 
 We now look at the same correlation function on a $128\times128$ lattice.
 Using a weighted fit of on points $[3,13]$, shown in fig.
@@ -144,6 +237,43 @@ Using a weighted fit of on points $[3,14]$, shown in fig.
     \caption{The points used in the fit for the $256\times256$ lattice.\label{fig:fit_dm_dm_256x256}}
 \end{figure}
 
+\subsection{Multiple Poin Choice Slopes}
+In these figs. \ref{fig:mult_slps_dm_dm_64x64,fig:mult_slps_dm_dm_128x128,fig:mult_slps_dm_dm_256x256}
+we plot the weighted fit slope for a variety of histogram bin selections. The
+histogram bins used in the fit are chosen in the following way:
+
+\begin{itemize}
+    \item A cut off point in the histograms is chosen such that all the histogram bins beyond this
+        point have errors that are too large to justify including them in a fit.
+    \item All histogram bins until the cut off are used in a weighted fit. This is plotted as the first
+        point with error bars that are the error of the fit.
+    \item The first histogram bin is omitted from the fit.
+    \item The second histogram bin is omitted from the fit.
+    \item ...
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{multi_slps_dm_dm_64x64}
+    \caption{Lattice size $64\times 64$ $x$-axis: The number of histogram bins omitted from the fit. Omission begins with the
+        bins corresponding to the smallest values of $r$ and works its way up to a cut off point
+    beyond which errors of the bin values are too large. $y$-axis: The slope calculated from a
+    weighted fit with error bars found in the usual way from the fit\label{fig:mult_slps_dm_dm_64x64}}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{multi_slps_dm_dm_128x128}
+    \caption{Same as fig. \ref{fig:mult_slps_dm_dm_64x64} but for lattice size $128 \times 128$. \label{fig:mult_slps_dm_dm_128x128}}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{multi_slps_dm_dm_256x256}
+    \caption{Same as fig. \ref{fig:mult_slps_dm_dm_64x64} but for lattice size $256\times 256$.
+    \label{fig:mult_slps_dm_dm_256x256}}
+\end{figure}
+
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -164,23 +294,39 @@ Very preliminary results of the star star correlation function are shown in fig.
 The disconnected piece has been numerically measured for a couple of different lattice sizes shown
 in table \ref{table:counts}.
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=8.5 cm]{star_star_cor}
-    \caption{Star star correlation function (just along y direction) \label{fig:star_star_cor}}
-\end{figure}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=8.5 cm]{star_star_cor_log}
-    \caption{Star star correlation function (just along y direction) log log plot.\label{fig:star_star_cor_log}}
-\end{figure}
+%\begin{figure}[h]
+%    \centering
+%    \includegraphics[width=8.5 cm]{star_star_cor}
+%    \caption{Star star correlation function (just along y direction) \label{fig:star_star_cor}}
+%\end{figure}
+%
+%\begin{figure}[h]
+%    \centering
+%    \includegraphics[width=8.5 cm]{star_star_cor_log}
+%    \caption{Star star correlation function (just along y direction) log log plot.\label{fig:star_star_cor_log}}
+%\end{figure}
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=8.5 cm]{s_dimer_dimer_cor}
-    \caption{Dimer dimer correlation function in the star dimer model \label{fig:s_dimer_dimer}}
+    \caption{Dimer dimer correlation function in the star dimer model. Lattice size is $32\times
+    32$. \label{fig:s_dimer_dimer}}
 \end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{s_dimer_dimer_cor_log}
+    \caption{Same data as in fig. \ref{fig:s_dimer_dimer} but a log plot ($y$-axis only).
+    \label{fig:s_dimer_dimer_log}}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{s_dimer_dimer_cor_loglog}
+    \caption{Same data as in fig. \ref{fig:s_dimer_dimer} but a log log plot.
+    \label{fig:s_dimer_dimer_loglog}}
+\end{figure}
+
 
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -341,8 +487,8 @@ small system size as the $16\times 16$ lattice looks to be transnationally invar
 \begin{figure}[h]
     \centering
     \includegraphics[width=8.5 cm]{grey_scale_avg_vert}
-    \caption{Heat map of horizontal dimer placement on an $8\times 8$ lattice. Each representing the
-        occupation (red) and absence (blue) of a horizontal dimer is averaged over 50,000 configurations. Each
+    \caption{Heat map of average vertical dimer occupations on an $8\times 8$ lattice. Dimer
+        occupations averaged over 50,000 configurations. Each
         configuration included in the average is separated by $100t_{mc}$. Time passed before
         collecting data was $5\times 10^6 t_{mc}$. \label{fig:vert_avg_heat}}
 \end{figure}
@@ -351,8 +497,8 @@ small system size as the $16\times 16$ lattice looks to be transnationally invar
 \begin{figure}[h]
     \centering
     \includegraphics[width=8.5 cm]{grey_scale_avg_horz_16x16}
-    \caption{Heat map of horizontal dimer placement on an $16\times 16$ lattice. Each representing the
-        occupation (red) and absence (blue) of a horizontal dimer is averaged over 50,000 configurations. Each
+    \caption{Heat map of horizontal dimer occupations on an $16\times 16$ lattice. Dimer
+        occupations averaged over 50,000 configurations. Each
         configuration included in the average is separated by $100t_{mc}$. Time passed before
         collecting data was $5\times 10^6 t_{mc}$. \label{fig:horz_avg_heat_16x16}}
 \end{figure}
@@ -360,10 +506,19 @@ small system size as the $16\times 16$ lattice looks to be transnationally invar
 \begin{figure}[h]
     \centering
     \includegraphics[width=8.5 cm]{grey_scale_avg_vert_16x16}
-    \caption{Heat map of vertical dimer placement on an $16\times 16$ lattice. Each representing the
-        occupation (red) and absence (blue) of a vertical dimer is averaged over 50,000 configurations. Each
+    \caption{Heat map of vertical dimer occupations on an $16\times 16$ lattice. Dimer
+        occupations averaged over 50,000 configurations. Each
         configuration included in the average is separated by $100t_{mc}$. $5\times 10^6 t_{mc}$ passed
         before collecting data. \label{fig:vert_avg_heat_16x16}}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{grey_scale_avg_star_16x16}
+    \caption{Heat map of average star occupation on an $16\times 16$ lattice. Dimer
+        occupations averaged over 50,000 configurations. Each
+        configuration included in the average is separated by $100t_{mc}$. $5\times 10^6 t_{mc}$ passed
+        before collecting data. \label{fig:star_avg_heat_16x16}}
 \end{figure}
 
 
