@@ -357,7 +357,7 @@ Using a weighted fit of on points $[3,14]$, shown in fig.
 \end{figure}
 
 \subsection{Multiple Point Choice Slopes}
-In these figs. \ref{fig:mult_slps_dm_dm_64x64,fig:mult_slps_dm_dm_128x128,fig:mult_slps_dm_dm_256x256}
+In these figures %\ref{fig:mult_slps_dm_dm_64x64,fig:mult_slps_dm_dm_128x128,fig:mult_slps_dm_dm_256x256}
 we plot the weighted fit slope for a variety of histogram bin selections. The
 histogram bins used in the fit are chosen in the following way:
 
@@ -400,12 +400,22 @@ histogram bins used in the fit are chosen in the following way:
     lattice. (dimer model)\label{}}
 \end{figure}
 
+\subsection{Winding Numbers}
+
 \begin{figure}[h]
     \centering
     \includegraphics[width=8.5 cm]{W_vrt_NApNB_dmr_dmr_mdl}
     \caption{Histogram of the winding number $(N_A + N_B)\mathrm{mod}2$, i.e. number of occupied links in the
     vertical cut on sublattice A plus the number of occupied links on sublattice B.\label{}}
 \end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{W_vrt_NApNB_no_mod_dmr_dmr_mdl}
+    \caption{Histogram of the winding number $(N_A + N_B)$, i.e. number of occupied links in the
+    vertical cut on sublattice A plus the number of occupied links on sublattice B.\label{}}
+\end{figure}
+
 
 \begin{figure}[h]
     \centering
@@ -421,8 +431,37 @@ histogram bins used in the fit are chosen in the following way:
 
 \begin{figure}[h]
     \centering
+    \includegraphics[width=8.5 cm]{W_vrt_NAp2NB_no_mod_dmr_dmr_mdl}
+    \caption{Histogram of the winding number $(N_A + 2N_B)$.\label{}}
+\end{figure}
+
+
+\begin{figure}[h]
+    \centering
     \includegraphics[width=8.5 cm]{W_vrt_NAm2NB_dmr_dmr_mdl}
     \caption{Histogram of the winding number $N_A - 2N_B$.\label{}}
+\end{figure}
+
+\clearpage
+
+\subsection{Monomer Monomer Correlation Function}
+Fitting to the last three points in fig. \ref{mon_mon_sep_cor_loglog_16x16} results in a slope of
+$-0.05034\pm 0.0026$.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{mon_mon_sep_cor_normal_16x16}
+    \caption{Monomer monomer correlation function on a $16\times 16$ lattice. This figure was made
+    by generating a histogram of the distances between the beginning and end of a random walks as
+    they produces loops updates. Each histogram bin must be divided by the number of possible vertices
+    in the range of distances defined by a bins upper and lower limits. Sample information: 10,000
+    averages over 500 separate histograms. \label{fig:mon_mon_sep_cor_normal_16x16}}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{mon_mon_sep_cor_loglog_16x16}
+    \caption{Same as fig. \ref{fig:mon_mon_sep_cor_normal_16x16} but on log log axes. \label{mon_mon_sep_cor_loglog_16x16}}
 \end{figure}
 
 
@@ -433,9 +472,6 @@ histogram bins used in the fit are chosen in the following way:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Star Dimer}
-
-Very preliminary results of the star star correlation function are shown in fig.
-\ref{fig:star_star_cor}. 
 
 \begin{equation}
     \label{}
@@ -475,10 +511,24 @@ in table \ref{table:counts}.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=8.5 cm]{s_dimer_dimer_cor_log}
-    \caption{Same data as in fig. \ref{fig:s_dimer_dimer} but a log plot ($y$-axis only).
+    \includegraphics[width=8.5 cm]{s_dimer_dimer_cor_log_16x16}
+    \caption{ Log plot of the dimer dimer correlation on a $16\times16$ lattice. One sublatice removed.
     \label{fig:s_dimer_dimer_log}}
 \end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{s_dimer_dimer_cor_log_16x16_zoom}
+    \caption{ Zoom in of log plot of the dimer dimer correlation on a $16\times16$ lattice. One sublatice removed.
+    \label{fig:s_dimer_dimer_log_zoom}}
+\end{figure}
+
+%\begin{figure}[h]
+%    \centering
+%    \includegraphics[width=8.5 cm]{s_dimer_dimer_cor_log_32x32}
+%    \caption{ Log plot of the dimer dimer correlation on a $32\times32$ lattice. One sublatice removed.
+%    \label{fig:s_dimer_dimer_log}}
+%\end{figure}
 
 
 \begin{figure}[h]
@@ -491,11 +541,17 @@ in table \ref{table:counts}.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=8.5 cm]{s_dimer_dimer_cor_loglog}
+    \includegraphics[width=8.5 cm]{s_dimer_dimer_cor_loglog_16x16}
     \caption{Same data as in fig. \ref{fig:s_dimer_dimer} but a log log plot.
     \label{fig:s_dimer_dimer_loglog}}
 \end{figure}
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{s_dimer_dimer_cor_loglog_16x16_zoom}
+    \caption{Zoom in of fig. \ref{fig:s_dimer_dimer_loglog} but a log log plot.
+    \label{fig:s_dimer_dimer_loglog_zoom}}
+\end{figure}
 
 \begin{figure}[h]
     \centering
@@ -509,12 +565,24 @@ in table \ref{table:counts}.
     an average over 500 measurements each spaced by $t_{mc}$ \label{}}
 \end{figure}
 
+\clearpage
+
+\subsection{Winding Numbers}
+
 \begin{figure}[h]
     \centering
     \includegraphics[width=8.5 cm]{W_vrt_NApNB_str_dmr_mdl}
-    \caption{Histogram of the winding number $(N_A + N_B)\mathrm{mod}2$, i.e. number of occupied links in the
+    \caption{Histogram of the winding number $(N_A + N_B)$, i.e. number of occupied links in the
     vertical cut on sublattice A plus the number of occupied links on sublattice B.\label{}}
 \end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{W_vrt_NApNB_no_mod_str_dmr_mdl}
+    \caption{Histogram of the winding number $(N_A + N_B)$, i.e. number of occupied links in the
+    vertical cut on sublattice A plus the number of occupied links on sublattice B.\label{}}
+\end{figure}
+
 
 \begin{figure}[h]
     \centering
@@ -527,6 +595,13 @@ in table \ref{table:counts}.
     \includegraphics[width=8.5 cm]{W_vrt_NAp2NB_str_dmr_mdl}
     \caption{Histogram of the winding number $(N_A + 2N_B)\mathrm{mod}3$.\label{}}
 \end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{W_vrt_NAp2NB_no_mod_str_dmr_mdl}
+    \caption{Histogram of the winding number $(N_A + 2N_B)$.\label{}}
+\end{figure}
+
 
 \begin{figure}[h]
     \centering
