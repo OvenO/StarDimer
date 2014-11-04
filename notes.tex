@@ -4,6 +4,8 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{setspace}
+%\usepackage{epstopdf}
+%\epstopdfsetup{update} % only regenerate pdf files when eps file is newer
 \linespread{1}
 
 %%include our own symbols
@@ -41,42 +43,87 @@
 
 \maketitle 
 
-\section{Misc}
-At the RK point the ground state is the short-range resonating valence bond state
+\section{Introduction}
+In this paper we introduce a short range resonating-valence-bond (SR-RVB), a.ka. a quantum dimer
+model (QDM), on a square lattice that contains a $Z(3)$ local gauge structure. We use the term ``gauge
+structure'' instead of ``gauge symmetry'' in accordance with Wen's comment in \cite{wen} suggesting
+that the term ``gauge symmetry'' is confusing.  In the most basic hard core QDM the spins at the
+vertices of the lattice are all paired into singlet states with one of their neighbors which can be
+represented as a dimer. The over complete but simplest Hilbert space would be
+that found by considering an Ising variable at each link on the lattice representing the presence or absence of a
+dimer.  The operator $\hat{\sigma}^x_l$ acts on these links and has 
+eigenvalues $\sigma_l = \pm 1$, where $\sigma_l$ is the
+Ising variables of the $l^{\mathrm{th}}$ link on the lattice. The number operator for a give link is
+defined as $\hat{n}_l \equiv (1+\hat{\sigma}_x)/2$ and counts the number of dimers on link $l$. The
+number operator
+can also be expressed in terms of the creation and annihilation operators at a link $d_l^+$ and
+$d_l^-$ respectively as $\hat{n}_l \equiv d_l^+ d_l^-$. Since
+$\hat{\sigma}$ has eigenvalues $\pm 1$, $n_l$ can be 1 or 0.  
 
+In the fully packed QDM the Hilbert space must be properly restricted to satisfy the constraint that each vertex only
+possesses one occupied link. We introduce a local operator $G_v$ that acts on a given vertex $v$ in such a
+way that only the physical states are invariant under $G_v$. This operator is the local gauge
+transformation. In general it can be defined as
+%
 \begin{equation}
     \label{}
-    \left| \Psi_{RVB} \right\rangle = \sum_{C} \left| C \right\rangle
+    G_v=e^{i \alpha (n_v - n_0)}
 \end{equation}
-    
-\noindent
-where $\{C\}$ is the set of fully packed dimer configurations.
+%
+where $n_0$ is the constrained number of dimers touching a vertex, $n_0=1$ in the QDM model, and
+$n_v$ is the number of dimers at the $v^{\mathrm{th}}$ vertex defined in terms of the $n_l$ operator
+as $n_v = \sum_{l\in v} n_l$. For the QDM $n_0 = 1$ and $n_v$ will only ever be 1 so $G_v =
+e^{i\alpha (0)}$ and therefore $G_v$ leaves a physical state unchanged for any
+$\alpha$ making the local gauge structure $U(1)$. 
 
+Now we will introduce a relaxed constraint to the allowed number of dimers touching a vertex, namely we allow
+$n_v = 1$ or $n_v = 4$. When $n_v=1$ it is the usual QDM picture of one link at a vertex being
+occupied.  
+Given this relaxed
+constraint we propose a new local gauge transformation that leaves the physical states invariant
+%
 \begin{equation}
     \label{}
-    \| \Psi_{RVB} \|^2 = Z_{\mathrm{classical\ dimer}}
+    G_v = e^{i (\hat{n}_v -1) 2\pi/3}    
+\end{equation}
+%
+The new possibility of $n_v = 4$ is what reduces the local gauge structure from $U(1)$ to $Z(3)$. 
+
+Shortly we will define the Hamiltonian that describes a system that contains $n_v =1,4$ but for now
+we state that we set the coefficient of the kinetic and potential terms equal to each other so that
+it the model is at the RK point.  At the RK point the ground state is the short-range resonating
+valence bond state which also includes these new four link occupied vertices
+%
+\begin{equation}
+    \label{}
+    \left| \Psi \right\rangle = \sum_{\{C\}} \left| C \right\rangle
+    ,
+\end{equation}
+% 
+where $\{C\}$ is the set of fully packed configurations. The physical states invariance under $G_v$
+can now be written as 
+\begin{equation}
+    \label{}
+    G_v \left| \Psi \right\rangle = \left| \Psi \right\rangle
+    .
 \end{equation}
 
-i.e. the norm of $\Psi_{RVB}$ is the partition function of the classical dimer model.
-\\
-On the square lattice the dimer dimer correlation function at the RK point (coefficient in front of
-kinetic energy is equal to the coefficient in front of potential energy $t-v$) was solved exactly by Fisher and
-Stephenson in 1963. They showed that correlations decay as $1/r^2$. This algebraic decay means that
-ground state has no long
-range dimer order (not a crystal). It is not a liquid either. In a liquid correlations decay
-exponentially. 
-\\
-all above is from Fradkin.
-\\
 
-$U(1)$ gauge theory describes low-energy strong local correlations.
-Coupling a $U(1)$ gauge field to a charge $N$ matter field reduces the gauge symmetry to $Z_N$ gauge
-field (for $N>1$). 
+To understand the local gauge structure we will map the idea of a dimer constraint to a flux
+constraint. The square lattice contains two sublattices. We imagine that one sublattice has arrows
+on the links pointing towards the vertices and the other sublattice arrows on the links are pointing
+away from the vertices. A dimer couping a link that connects two vertices, one from each sublattice,
+amounts to a unit of flux in the direction of the arrow. Therefore in the QDM each vertex has a flux
+of $\pm 1$ which can be thought of as a background charge of
+$\pm 1$ on each vertex, the sign determined by the sublattice. When the constraint is relaxed and $n_v =4$ is
+allowed it is equivalent to doping the system with objects carrying charge $\pm 3$. 
+In general a $U(1)$ gauge theory describes low-energy strong local correlations.
+Coupling a $U(1)$ gauge field to a charge $N$ matter field reduces the gauge structure to a $Z(N)$ 
+field \cite{fradkin and shenker}. For our model the matter field $U(1)$ is coupled to is
+charge $N=3$ and results in a $Z(N)$ field.
 
-The structure of the quantum dimer models phase diagrams depends on if a lattice is bipartite or
-not; if it is bipartite it also depends on the coordination number. Most of the time the valence
-bond crystal is the ground state.
-
+Now we want to define a Hamiltonian that commutes with $G_v$. First we must consider the dynamics of the
+$n_v = 4$ objects on the lattice.
 The Hamiltonian of the quantum dimer model is split into the resonance term and the diagonal term. The
 resonance term being the kinetic energy term and the diagonal term being the potential energy term
 diagonal term being the potential energy term.
@@ -269,6 +316,35 @@ right diagonal propagation and potential energy
             \right|
         \right)
 \end{equation}
+
+
+
+%We show that at the RK point of our model, where the prefactor of the kenetic
+%energy terms in the Hamiltonian are equal to the prefactors of the potential energy terms, the
+%dimers 
+
+%The Rokhsar-Kivelson quantum dimer model \cite{HERE}, a short range resonating-valence-bond (RVB)
+%model, has been thoroughly studied since its introduction in 1988. The prevalence of the model is
+%partly attributed to the ability to sample the groundstate wave function simplicity and partly to the interesting properties it shows
+%when considered in different lattice geometries. The
+
+%\begin{equation}
+%    \label{}
+%    \| \Psi \|^2 = Z_{\mathrm{classical\ dimer}}
+%\end{equation}
+%
+%i.e. the norm of $\Psi$ is the partition function of the classical dimer model.
+
+
+
+%On the square lattice the dimer dimer correlation function at the RK point (coefficient in front of
+%kinetic energy is equal to the coefficient in front of potential energy $t-v$) was solved exactly by Fisher and
+%Stephenson in 1963. They showed that correlations decay as $1/r^2$. This algebraic decay means that
+%ground state has no long
+%range dimer order (not a crystal). It is not a liquid either. In a liquid correlations decay
+%exponentially. 
+%from Fradkin.
+
 
 \section{Dimer Model}
 
