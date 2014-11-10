@@ -4,8 +4,8 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{setspace}
-%\usepackage{epstopdf}
-%\epstopdfsetup{update} % only regenerate pdf files when eps file is newer
+\usepackage{epstopdf}
+\epstopdfsetup{update} % only regenerate pdf files when eps file is newer
 \linespread{1}
 
 %%include our own symbols
@@ -558,88 +558,120 @@ $-0.05034\pm 0.0026$.
 The disconnected piece has been numerically measured for a couple of different lattice sizes shown
 in table \ref{table:counts}.
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{s_dimer_dimer_cor_loglin_one_sublat_32x32}
+    \caption{Log linear plot of the dimer dimer correlation on a $32\times32$ lattice (blue). 
+        One sublattice removed. Fit (red) slope: $-0.3386 \pm 0.0042$. 
+    \label{fig:s_dimer_dimer_log}}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{s_dimer_dimer_cor_loglin_both_sublat_32x32}
+    \caption{Log linear plot of the dimer dimer correlation on a $32\times32$ lattice. 
+        Both sublattices. Fit (red) slope: $ -0.3858 \pm 0.0034$.
+    \label{fig:s_dimer_dimer_log}}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{s_dimer_dimer_cor_loglog_one_sublat_32x32}
+    \caption{Log log plot of the dimer dimer correlation on a $32\times32$ lattice (blue). 
+        One sublattice. Fit (red) slope: $-3.8899 \pm 0.0487$.
+    \label{fig:s_dimer_dimer_log}}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8.5 cm]{s_dimer_dimer_cor_loglog_both_sublat_32x32}
+    \caption{Log log plot of the dimer dimer correlation on a $32\times32$ lattice (blue). 
+        Both sublattices. Fit (red) slope: $-3.4015 \pm 0.0299$.
+    \label{fig:s_dimer_dimer_log}}
+\end{figure}
+
+%%\begin{figure}[h]
+%%    \centering
+%%    \includegraphics[width=8.5 cm]{star_star_cor}
+%%    \caption{Star star correlation function (just along y direction) \label{fig:star_star_cor}}
+%%\end{figure}
+%%
+%%\begin{figure}[h]
+%%    \centering
+%%    \includegraphics[width=8.5 cm]{star_star_cor_log}
+%%    \caption{Star star correlation function (just along y direction) log log plot.\label{fig:star_star_cor_log}}
+%%\end{figure}
+%
 %\begin{figure}[h]
 %    \centering
-%    \includegraphics[width=8.5 cm]{star_star_cor}
-%    \caption{Star star correlation function (just along y direction) \label{fig:star_star_cor}}
+%    \includegraphics[width=8.5 cm]{s_dimer_dimer_cor}
+%    \caption{Dimer dimer correlation function in the star dimer model. The data for both of the
+%        sublattices is included. Lattice size is $64\times
+%    64$. \label{fig:s_dimer_dimer}}
 %\end{figure}
 %
 %\begin{figure}[h]
 %    \centering
-%    \includegraphics[width=8.5 cm]{star_star_cor_log}
-%    \caption{Star star correlation function (just along y direction) log log plot.\label{fig:star_star_cor_log}}
-%\end{figure}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=8.5 cm]{s_dimer_dimer_cor}
-    \caption{Dimer dimer correlation function in the star dimer model. The data for both of the
-        sublattices is included. Lattice size is $64\times
-    64$. \label{fig:s_dimer_dimer}}
-\end{figure}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=8.5 cm]{s_dimer_dimer_cor_log_both_sublat}
-    \caption{The data for both sublattices is included. Same data as in fig. \ref{fig:s_dimer_dimer} but a log plot ($y$-axis only).
-    \label{fig:s_dimer_dimer_log}}
-\end{figure}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=8.5 cm]{s_dimer_dimer_cor_log_16x16}
-    \caption{ Log plot of the dimer dimer correlation on a $16\times16$ lattice. One sublatice removed.
-    \label{fig:s_dimer_dimer_log}}
-\end{figure}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=8.5 cm]{s_dimer_dimer_cor_log_16x16_zoom}
-    \caption{ Zoom in of log plot of the dimer dimer correlation on a $16\times16$ lattice. One sublatice removed.
-    \label{fig:s_dimer_dimer_log_zoom}}
-\end{figure}
-
-%\begin{figure}[h]
-%    \centering
-%    \includegraphics[width=8.5 cm]{s_dimer_dimer_cor_log_32x32}
-%    \caption{ Log plot of the dimer dimer correlation on a $32\times32$ lattice. One sublatice removed.
+%    \includegraphics[width=8.5 cm]{s_dimer_dimer_cor_log_both_sublat}
+%    \caption{The data for both sublattices is included. Same data as in fig. \ref{fig:s_dimer_dimer} but a log plot ($y$-axis only).
 %    \label{fig:s_dimer_dimer_log}}
 %\end{figure}
-
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=8.5 cm]{s_dimer_dimer_cor_loglog_both_sublat}
-    \caption{The data for both sublattices is included. Same data as in fig. \ref{fig:s_dimer_dimer} but a log log plot where the data for both
-        sublattices is included.
-    \label{fig:s_dimer_dimer_loglog}}
-\end{figure}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=8.5 cm]{s_dimer_dimer_cor_loglog_16x16}
-    \caption{Same data as in fig. \ref{fig:s_dimer_dimer} but a log log plot.
-    \label{fig:s_dimer_dimer_loglog}}
-\end{figure}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=8.5 cm]{s_dimer_dimer_cor_loglog_16x16_zoom}
-    \caption{Zoom in of fig. \ref{fig:s_dimer_dimer_loglog} but a log log plot.
-    \label{fig:s_dimer_dimer_loglog_zoom}}
-\end{figure}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=8.5 cm]{full_lat_dmr_dmr_cor_str_dmr_mdl}
-    \caption{The dimer dimer correlation function of horizontal dimers where $s_0$ is the
-        horizontal link at the origin and the color bar shows the correlation function between $s_0$
-        and different
-        horizontal links on the lattice. This was made for a $18\times18$
-        lattice. We have cropped out the closest points to the origin by setting them to 
-        "reasonable" values so they do not wash out the longer distance features. The first $1000t_{mc}$ thrown out. Generated image with 76110 bins with each bin being
-    an average over 500 measurements each spaced by $t_{mc}$ \label{}}
-\end{figure}
+%
+%\begin{figure}[h]
+%    \centering
+%    \includegraphics[width=8.5 cm]{s_dimer_dimer_cor_log_16x16}
+%    \caption{ Log plot of the dimer dimer correlation on a $16\times16$ lattice. One sublatice removed.
+%    \label{fig:s_dimer_dimer_log}}
+%\end{figure}
+%
+%\begin{figure}[h]
+%    \centering
+%    \includegraphics[width=8.5 cm]{s_dimer_dimer_cor_log_16x16_zoom}
+%    \caption{ Zoom in of log plot of the dimer dimer correlation on a $16\times16$ lattice. One sublatice removed.
+%    \label{fig:s_dimer_dimer_log_zoom}}
+%\end{figure}
+%
+%%\begin{figure}[h]
+%%    \centering
+%%    \includegraphics[width=8.5 cm]{s_dimer_dimer_cor_log_32x32}
+%%    \caption{ Log plot of the dimer dimer correlation on a $32\times32$ lattice. One sublatice removed.
+%%    \label{fig:s_dimer_dimer_log}}
+%%\end{figure}
+%
+%
+%\begin{figure}[h]
+%    \centering
+%    \includegraphics[width=8.5 cm]{s_dimer_dimer_cor_loglog_both_sublat}
+%    \caption{The data for both sublattices is included. Same data as in fig. \ref{fig:s_dimer_dimer} but a log log plot where the data for both
+%        sublattices is included.
+%    \label{fig:s_dimer_dimer_loglog}}
+%\end{figure}
+%
+%\begin{figure}[h]
+%    \centering
+%    \includegraphics[width=8.5 cm]{s_dimer_dimer_cor_loglog_16x16}
+%    \caption{Same data as in fig. \ref{fig:s_dimer_dimer} but a log log plot.
+%    \label{fig:s_dimer_dimer_loglog}}
+%\end{figure}
+%
+%\begin{figure}[h]
+%    \centering
+%    \includegraphics[width=8.5 cm]{s_dimer_dimer_cor_loglog_16x16_zoom}
+%    \caption{Zoom in of fig. \ref{fig:s_dimer_dimer_loglog} but a log log plot.
+%    \label{fig:s_dimer_dimer_loglog_zoom}}
+%\end{figure}
+%
+%\begin{figure}[h]
+%    \centering
+%    \includegraphics[width=8.5 cm]{full_lat_dmr_dmr_cor_str_dmr_mdl}
+%    \caption{The dimer dimer correlation function of horizontal dimers where $s_0$ is the
+%        horizontal link at the origin and the color bar shows the correlation function between $s_0$
+%        and different
+%        horizontal links on the lattice. This was made for a $18\times18$
+%        lattice. We have cropped out the closest points to the origin by setting them to 
+%        "reasonable" values so they do not wash out the longer distance features. The first $1000t_{mc}$ thrown out. Generated image with 76110 bins with each bin being
+%    an average over 500 measurements each spaced by $t_{mc}$ \label{}}
+%\end{figure}
 
 \clearpage
 
